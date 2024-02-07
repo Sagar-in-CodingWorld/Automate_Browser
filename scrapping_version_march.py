@@ -1,4 +1,4 @@
-from selenium import webdriver
+from selenium import webdriver;
 from selenium.webdriver.common.by import By
 import time
 #from selenium.webdriver.support.wait import WebDriverWait
@@ -21,6 +21,7 @@ errorSound=pygame.mixer.Sound('error.mp3')
 
 URL = "http://reciprocal.wbhealth.gov.in/Login.aspx"
 I=10
+
 
 Id = '7478279391'
 Password = 'Tumpa@7272'
