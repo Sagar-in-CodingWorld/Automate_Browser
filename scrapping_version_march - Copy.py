@@ -24,8 +24,8 @@ SCHEDULE_URL = "http://reciprocal.wbhealth.gov.in/ScheduleDateForUser.aspx"
 I=10
 
 
-Id = '8370870933'
-Password = 'Khatun@123'
+Id = '6291065772'
+Password = 'Srabonti@123'
 driver = webdriver.Chrome()
 #driver.implicitly_wait(10)
 driver.maximize_window()

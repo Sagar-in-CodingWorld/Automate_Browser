@@ -24,8 +24,8 @@ SCHEDULE_URL = "http://reciprocal.wbhealth.gov.in/ScheduleDateForUser.aspx"
 I=10
 
 
-Id = '8370870933'
-Password = 'Khatun@123'
+Id = '8918656234'
+Password = 'Soumya@123'
 driver = webdriver.Chrome()
 #driver.implicitly_wait(10)
 driver.maximize_window()
@@ -84,19 +84,33 @@ drop = Select(x)
 
 #Select by Index
 drop.select_by_index(2)'''
+march = [
+            "//select/option[text()='05-Mar-2024']",
+            "//select/option[text()='06-Mar-2024']",
+            "//select/option[text()='07-Mar-2024']",
+            "//select/option[text()='12-Mar-2024']",
+            "//select/option[text()='13-Mar-2024']",
+            "//select/option[text()='14-Mar-2024']",
+            "//select/option[text()='19-Mar-2024']",
+            "//select/option[text()='20-Mar-2024']",
+            "//select/option[text()='21-Mar-2024']",
+            "//select/option[text()='27-Mar-2024']"
+            
+         ]
+
 xx = [
-      
-      "//select/option[text()='05-Mar-2024']",
-      "//select/option[text()='06-Mar-2024']",
-      "//select/option[text()='07-Mar-2024']",
-      "//select/option[text()='12-Mar-2024']",
-      "//select/option[text()='13-Mar-2024']",
-      "//select/option[text()='14-Mar-2024']",
-      "//select/option[text()='19-Mar-2024']",
-      "//select/option[text()='20-Mar-2024']",
-      "//select/option[text()='21-Mar-2024']",
-      "//select/option[text()='27-Mar-2024']",
-      "//select/option[text()='28-Mar-2024']"
+
+      "//select/option[text()='02-Apr-2024']",
+      "//select/option[text()='03-Apr-2024']",
+      "//select/option[text()='04-Apr-2024']",
+      "//select/option[text()='11-Apr-2024']",
+      "//select/option[text()='16-Apr-2024']",
+      "//select/option[text()='17-Apr-2024']",
+      "//select/option[text()='18-Apr-2024']",
+      "//select/option[text()='23-Apr-2024']",
+      "//select/option[text()='24-Apr-2024']",
+      "//select/option[text()='25-Apr-2024']",
+      "//select/option[text()='30-Apr-2024']"
       
      ]
 #measure the length of the date list
