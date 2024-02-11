@@ -11,6 +11,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from tkinter import *
+import customtkinter as ctk
 
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -24,8 +25,7 @@ SCHEDULE_URL = "http://reciprocal.wbhealth.gov.in/ScheduleDateForUser.aspx"
 I=10
 
 
-Id = '8370870933'
-Password = 'Khatun@123'
+
 driver = webdriver.Chrome()
 #driver.implicitly_wait(10)
 driver.maximize_window()
@@ -35,39 +35,61 @@ Num = driver.find_element(By.ID,'txtUser')
 Pass = driver.find_element(By.ID,'txtPassword')
 
 #GUI WORK
-def send_captcha():
+def send_user_data():
     global CAP
+    global user
+    global password
+    user = ID.get()
+    password = PASSWORD.get()
     CAP = captcha_entry.get()
+    
+    print(user,password,CAP)
     window.destroy()
-window = Tk()
-window.title("Captcha Input Window")
+
+
+
+window = ctk.CTk()
+window.title("User Input Window")
 window.configure(bg="#A6E3E9")
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("green")
 
 ScreenWidth = window.winfo_screenwidth()
 ScreenHeight = window.winfo_screenheight()
 
 WinWidth= int(ScreenWidth/2)
-WinHeight= int(ScreenHeight/3)
+WinHeight= int(ScreenHeight/2)
 
 #find the center position
 CenterX = int((ScreenWidth - WinWidth)/2)
 CenterY = int((ScreenHeight - WinHeight)/5)
-window.geometry(f"{WinWidth}x{WinHeight}+{CenterX}+{CenterY}")
-label=Label(window,text="Enter the captcha you can see on the browser")
-label.place(x=10,y=30)
-captcha_entry=Entry(window,width=100)
-captcha_entry.place(x=10,y=50)
-captcha_entry.focus_set()
-b1=Button(window,text="Submit Captcha",command = send_captcha ,width = 20,bg='green')
-b1.place(x=10,y=100)
+window.geometry(f"{WinWidth}x{WinHeight}+{CenterX}+{CenterY-70}")
+
+label1=ctk.CTkLabel(master=window,text="ENTER THE USER_ID")
+label1.place(x=100,y=30)
+ID=ctk.CTkEntry(master=window,width=200)
+ID.place(x=100,y=55)
+#ID.focus_set()
+
+label2=ctk.CTkLabel(master=window,text="ENTER THE PASSWORD")
+label2.place(x=100,y=100)
+PASSWORD=ctk.CTkEntry(master=window,width=200)
+PASSWORD.place(x=100,y=125)
+#PASSWORD.focus_set()
+
+label3=ctk.CTkLabel(master=window,text="ENTER THE CAPTCHA HERE")
+label3.place(x=100,y=190)
+captcha_entry=ctk.CTkEntry(master=window,width=100)
+captcha_entry.place(x=100,y=215)
+#captcha_entry.focus_set()
+
+b1=ctk.CTkButton(master=window,text="Submit Captcha",command = send_user_data,width = 500,height=100)
+b1.place(x=100,y=270)
 
 window.mainloop()
 
-
-
-
-Num.send_keys(Id)
-Pass.send_keys(Password)
+Num.send_keys(user)
+Pass.send_keys(password)
 
 '''cap = int(input("enter the captcha here"))#To take the captcha input'''
 driver.find_element(By.ID,'txtcaptcha').send_keys(CAP)#inserting the captcha 
